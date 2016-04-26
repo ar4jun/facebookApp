@@ -1,0 +1,71 @@
+extend header
+block content
+  .container-fluid
+    .row
+        .col-md-4
+      
+           img(src="../images/"+datas[0].img style="width:250px;height:250px;")
+           br
+           br
+           
+        .col-md-6
+      
+          form(method="POST", action="/users/update")
+
+            .form-group
+              label.col-lg-3.control-label Name
+              |                 
+              .col-lg-1
+              b.c2 #{datas[0].name}
+              |             
+            .form-group
+              label.col-lg-3.control-label User Name
+              |                 
+              .col-lg-1
+              b.c2 #{datas[0].uname}
+              |   
+            .form-group
+              label.col-lg-3.control-label Email
+              |                 
+              .col-lg-1
+              b.c2 #{datas[0].email}
+              | 
+            
+            .form-group
+              label.col-lg-3.control-label Gender
+              .col-lg-1
+              if datas[0].gender=="female"
+                b.c2 Female
+              else
+                b.c2 Male
+            .form-group
+              label.col-lg-3.control-label Date Of Birth
+              |                 
+              .col-lg-1
+              b.c2 #{datas[0].dob}
+              br
+            .form-group
+              label.col-lg-3.control-label Place
+              |                 
+              .col-lg-1
+              if place
+                b.c2 #{datas[0].palce}
+              else
+                b.c2 #{datas[0].place}
+              br
+            .form-group
+              label.col-lg-3.control-label Relation ships
+              .col-lg-1         
+              b.c2 #{datas[0].relation}
+              br
+            .form-group
+              label.col-lg-3.control-label About You 
+              |                 
+              .col-lg-1       
+              b.c2 #{datas[0].about}
+            .form-group
+              label.col-lg-3.control-label
+           
+              
+              br
+              br

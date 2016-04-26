@@ -1,0 +1,44 @@
+extend header
+block content 
+	-var i = 1
+	.container
+	each item in datas  
+		.row.bordr
+			.col-md-2
+
+			.col-md-3
+
+				img(src="../images/"+item.img style="width:200px;height:200px;")
+
+			.col-md-3
+
+				widget1
+				p.c2= item.name   
+				p.c2= item.email
+				p.c2= item.place
+				p.c2= item.relation
+				p.c2= item.myself
+				p 
+				br
+				br
+				form(method="post", action="/users/confirm")
+					
+					input(type="hidden", name="Name", value= item.uname)
+					input.btn.btn-primary(type="submit", style="width:200px;", value="Confirm")
+		br
+		br
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           

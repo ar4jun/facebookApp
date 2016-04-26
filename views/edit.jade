@@ -1,0 +1,85 @@
+extend header
+block content
+  .container-fluid
+    .row
+        .col-md-4
+      
+           img(src="../images/"+data[0].img style="width:250px;height:250px;")
+           br
+           br
+           form(action="/users/uploads", method="post", enctype="multipart/form-data")
+            
+              input.form-control(type="file", multiple,style="width:255px;display:inline;",name="upl")
+              br
+              br
+              button.btn.btn-warning(type="submit",style="width:250px;" value="Upload") Upload File
+        .col-md-6
+      
+          form(method="POST", action="/users/update")
+
+            .form-group
+              label.col-lg-3.control-label Name
+              |                 
+              .col-lg-6
+              input.form-control(input type='text', name='name',style="width:300px;", value=data[0].name)
+              |             
+            .form-group
+              label.col-lg-3.control-label User Name
+              |                 
+              .col-lg-6
+              input.form-control(input type='text', name='uname',style="width:300px;", value=data[0].uname)
+              |   
+            .form-group
+              label.col-lg-3.control-label Email
+              |                 
+              .col-lg-6
+              input.form-control(input type='text', name='email',style="width:300px;", value=data[0].email)
+              | 
+            .form-group
+              label.col-lg-3.control-label Male
+              if data[0].gender=="male"
+                input(type='radio', name='gender', value='male', checked="checked")
+              else
+                input(type='radio', name='gender', value='male')  
+
+            .form-group
+              label.col-lg-3.control-label FeMale
+              if data[0].gender=="female"
+                input(type='radio', name='gender', value='female',checked="checked")
+              else
+                input(type='radio', name='gender', value='female', )
+            .form-group
+              label.col-lg-3.control-label Birthday
+              |                 
+              .col-lg-6
+              input.form-control(input type='date', name='dob',style="width:300px;", value=data[0].dob)
+            .form-group
+              label.col-lg-3.control-label Place
+              |                 
+              .col-lg-6
+              if place
+                input.form-control(input type='text', name='place',style="width:300px;", value=data[0].place)
+              else
+                input.form-control(input type='text', name='place',style="width:300px;", value=data[0].place) 
+            .form-group
+              label.col-lg-3.control-label Relation ships         
+              select.form-control(name='relation',style="width:300px;")
+                option(value='single') Single
+                option(value='committed') In a ralationship
+                option(value='engaged') Engaged
+                option(value='married') Married
+                option(value='complicated') Its complicated
+            .form-group
+              label.col-lg-3.control-label About You 
+              |                 
+              .col-lg-6       
+              input.form-control(type="textarea(rows='10', cols='30')", name="me",style="width:300px;", value=data[0].about)
+            .form-group
+              label.col-lg-3.control-label
+           
+              input.btn.btn-primary(type="submit",style="width:100px;" value="Save").submit-button 
+              |    
+              
+              input.btn.btn-danger(type="reset" style="width:100px;" value="Clear").reset-button
+              br
+              br

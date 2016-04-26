@@ -1,0 +1,73 @@
+html
+  head
+    title #{title} - #{name}
+    script(src='https://code.jquery.com/jquery-2.1.4.min.js', integrity='sha256-8WqyJLuWKRBVhxXIL1jBDD7SDxU936oZkCnxQbWwJVw=', crossorigin='anonymous')
+
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS", crossorigin="anonymous")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", crossorigin="anonymous")
+
+  body
+    .container-fluid
+      .row
+        .col-md-12
+          h2
+            center(style="font-weight: bold;font-size: 30px;font-family: 'aleo';") NODE JS
+    .container-fluid
+      .row
+        .col-md-1
+        .col-md-5.bordr
+          b SIGN UP
+          |   
+          span.glyphicon.glyphicon-user(aria-hidden='true')
+          br
+          br
+          p
+            form(name ="signup", method="post", action="/auth/signup", onsubmit='loadXMLDoc()')
+             input.form-control(type="text",style="width:300px;", name="Name", placeholder="Name",size ='35 px')
+             p.valid#NameError
+             
+             
+             input.form-control(type="email",style="width:300px;", name="email", placeholder="Email",size ='35 px')
+             p.valid#emailError
+             
+             
+             input.form-control(type="text",style="width:300px;", name="uname", placeholder="User name",size ='35 px' id="myDiv" )
+             p.valid#unameError
+             
+             input.form-control(type="password",style="width:300px;", name="password", placeholder="Password",size ='35 px')
+             p.valid#passwordError
+             
+             input.btn.btn-primary(type="submit" style="width:150px;" value="Sign Up").submit-button
+             |  
+             input.btn.btn-primary(type="reset" style="width:150px;" value="Clear").reset-button
+        .col-md-1
+
+        .col-md-4.bordr
+          b SIGN IN
+          |     
+          span.glyphicon.glyphicon-lock(aria-hidden='true')
+
+          br
+          br
+          form(method="POST", action="/auth/signin")
+            p 
+            input.form-control(type="text", name="uname", style="width:300px;", placeholder="User name", required)
+            p 
+            input.form-control(type="password", name="password", style="width:300px;",placeholder="Password", required)
+            p 
+            input.btn.btn-primary(type="submit" style="width:150px;" value="Sign in").submit-button
+            |  
+            input.btn.btn-primary(type="reset" style="width:150px;" value="Clear").reset-button
+  script.
+      $(document).ready(function(){
+      var data = !{data};
+
+      //- alert(data[0].msg);
+      //- $('#nameError').html(data[0].msg);
+        $.each(data, function( key, value ) {
+        
+          //- alert(value.param );
+          $('#'+value.param+'Error').html(value.msg);
+        });
+      });

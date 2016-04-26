@@ -1,0 +1,118 @@
+extend header
+block content
+
+  - var f =data[0].friend
+  - var fno =f.length
+  .container-fluid
+    .row
+        .col-md-3
+        .col-md-3
+        .col-md-3
+
+  .container-fluid
+    .row
+        .col-md-3
+          #chatl
+
+            img(src="../images/"+data[0].img width="250")
+            br
+            div(style='text-align:center;')  
+              each item in data
+                  b= item.name      
+                  p.c= item.uname
+                  p.c= item.email   
+        .col-md-6
+          .bordr
+            p.span.glyphicon.glyphicon-camera.c2   Do u Want to post something,..??
+            form(action="/users/posts", method="post", enctype="multipart/form-data")
+                |  
+                input.form-control(type="file", multiple,style="width:300px;display:inline;",name="upl")
+                |  
+                |  
+                br  
+                textarea.form-control(name='textarea', rows='3', cols='73', placeholder='write something,...')
+                br
+                button.btn.btn-primary(type="submit",style="width:200px;" value="Upload") Upload File
+          br
+          br
+          each item in data
+            each pictr in item.postsImg.reverse()
+              .bordr
+                .padd
+                  img(src="../images/"+pictr.postByPic style="width:40px;height:40px;display: inline;")
+                  |  
+                  b.c3#name 
+                  a(href='/users/profileView?id='+pictr.postBy style="display: inline;") 
+                    b.c5 #{pictr.postBy} 
+                  |  
+                  b.c3 added a new Picture.
+                  br
+                center
+                  img(src="../images/"+pictr.images style="width:400px;height:300px;")
+                  br
+                  br
+                p.padd #{pictr.Description}
+              
+
+                
+              .bordrs    
+                a(href='#', id="like" ) 
+                  span.glyphicon.glyphicon-thumbs-up.padd(style="display:inline;" aria-hidden='true')
+                  |   
+                  b.c4 like 
+
+                br
+                br
+                b#likeValue
+              br
+             
+          
+        |     
+        .col-md-3
+          //- form(method="POST", action="/users/search")
+          
+          //-   input.form-control(type="text", name="name",style="width:200px;display:inline;")
+          //-   input.btn.btn-primary(type="submit" value="Search").submit-button
+          #chat
+            center
+              li.active(role='presentation')
+                a(href='#')
+                  b.c3 FRIENDS 
+                  span.badge #{fno} 
+              //- b Friends
+              //- |      
+              //- b.c ( #{fno} )
+            br
+            ul
+              each item in data
+                  each friends in item.friend.reverse()
+                    li= friends
+
+  script.
+    $(document).ready(function(){
+    $("#like").click(function () {
+    var id = $(this).attr('data-name');
+    alert(name);
+
+
+    $.ajax({ 
+        type: "get",
+        url: '/users/like',
+        data: {postBy: "name"},
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: successFunc,
+        error: errorFunc
+    });
+
+    function successFunc(data, status) {
+        //- $("#likeValue").html(data);
+        alert("status");
+    }
+
+    function errorFunc() {
+        alert('error');
+    }
+    });
+
+    });

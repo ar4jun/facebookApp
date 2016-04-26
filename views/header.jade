@@ -1,0 +1,68 @@
+
+html
+	head
+		title #{title} - #{name}
+		script(src='https://code.jquery.com/jquery-2.1.4.min.js', integrity='sha256-8WqyJLuWKRBVhxXIL1jBDD7SDxU936oZkCnxQbWwJVw=', crossorigin='anonymous')
+
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS", crossorigin="anonymous")
+		
+		script(src="https://cdn.socket.io/socket.io-1.2.0.js")
+		script(src="/javascripts/socket.io/node_modules/socket.io-client/socket.io.js")
+
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", crossorigin="anonymous")
+		
+		
+		
+		//- script.
+		//- 	var socket = io("http://localhost:3700/", {
+		//- 	query: "userId=#{data[0].uname}"
+		//- 	})
+
+	body
+
+	- var n =data[0].request
+
+	- var no =n.length
+		nav.navbar.navbar-inverse.navbar-fixed-top.sticky
+			.container-fluid
+				.navbar-header
+					a.navbar-brand(href='/users/home')
+						span.glyphicon.glyphicon-home(aria-hidden='true' ,style="display:inline;")
+							
+				form(method="POST", action="/users/search", style="display: inline-block;padding-top: 9px;")
+					input.form-control(type="text", name="name",style="width:200px;display:inline;")
+					input.btn.btn-primary(type="submit" value="Search").submit-button
+				ul.nav.navbar-nav.navbar-right
+					li(style="font-size: 18px;font-weight: bold;padding-top: 0px;")
+						a.c1(href="/users/profileView")
+							img(src="../images/"+data[0].img style="width:30px;height:30px;display: inline;")
+							|      
+							b.c5 #{data[0].name}
+					if no>0
+						li(style="font-size: 18px;font-weight: bold;padding-top: 7px;")
+							a.c1(href="/users/reqst") 
+								span.glyphicon.glyphicon-user 
+								span.badge #{no}
+					else
+						li(style="font-size: 18px;font-weight: bold;padding-top: 7px;")
+							a.c1(href="#") 
+								span.glyphicon.glyphicon-user 
+								
+					li(style="font-size: 18px;font-weight: bold;padding-top: 7px;")
+						a.c1(href="../users/edit") 
+							span.glyphicon.glyphicon-edit(aria-hidden='true')
+					li(style="font-size: 18px;font-weight: bold;padding-top: 7px;")
+						a.c1(href="/auth/logout") 
+							span.glyphicon.glyphicon-off(aria-hidden='true')
+							|   SIGN OUT
+
+		block content
+	.footer
+		CENTER
+			p Copyright © 2016 - 2017 Toober Technologies
+
+
+	
+		//- alert(data[0].uname);
+							

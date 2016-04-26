@@ -1,0 +1,39 @@
+extend header
+block content   
+	.container-fluid
+		.row
+			.col-md-3
+
+				img(src="../images/"+data[0].img width="250px;")
+
+			.col-md-3.col-md-offset-4
+
+				widget1
+				p= datas[0].name   
+				p= datas[0].email
+				p= datas[0].place
+				p= datas[0].relation
+				p= datas[0].myself
+				p 
+				form(method="post", action="/users/follow")
+					
+					input(type="hidden", name="Name", value= datas[0].uname)
+					if friendFlag==1
+						input.btn.btn-primary( style="width:200px;", value="Friend",disabled)
+					else
+						input.btn.btn-primary(type="submit", style="width:200px;", value="Add Friend")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           

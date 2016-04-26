@@ -1,0 +1,157 @@
+b {
+    color: rgb(47, 79, 79);
+    font-size: 30px;
+    font-weight: bold;
+    font-family: "aleo";
+}
+
+p {
+    color: gray;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "aleo";
+}
+
+li {
+    color: pink;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "aleo";
+}
+
+h2 {
+    border: 1px solid red;
+    background-color: #00ffff;
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+    font-family: "aleo";
+    font-size: 30px;
+}
+
+.bordr {
+    padding: 20px;
+    border-style: groove;
+    background-color: #E0F2F7;
+    border-radius: 10px;
+}
+.bordrs {
+    /*padding: 20px;*/
+    border-style: groove;
+    background-color: #E0F2F7;
+    border-radius: 10px;
+}
+
+#chat {
+    border-style: groove;
+    position: fixed;
+    top: 58px;
+    right: 0;
+    bottom: 40px;
+    float: right;
+    width: 300px;
+    background-color: #6e9bfe;
+    z-index: 300;
+}
+#chatl {
+    padding:20px;
+    border-style: groove;
+    position: fixed;
+    top: 58px;
+    left: 0;
+    bottom: 40px;
+    float: right;
+    width: 300px;
+    background-color: #6e9bfe;
+    z-index: 300;
+}
+
+.footer {
+    height: 40px;
+    color: red;
+    background-color: #FFF;
+    bottom: 0px;
+    margin-bottom: 0px;
+    width: 100%;
+    position: fixed;
+    border-style: solid;
+    border-color: gray;
+}
+
+body {
+    padding-top: 70px;
+    top: 0px;
+    background-image: url("../images/as.jpg");
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 20px;
+    bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.bd {
+    background-image: url("../images/3.jpg");
+}
+
+.bg {
+    background-color: #E6E6E6;
+}
+
+.bg1 {
+    background-color: #F2F2F2;
+}
+
+.valid {
+    color: red;
+    font-family: "aleo";
+    font-size: 15px;
+    width: 300px;
+    height: 30px;
+}
+
+.c {
+    color: white;
+    font-family: "aleo";
+    font-size: 20px;
+}
+
+.c1 {
+    color: red;
+    font-family: "aleo";
+    font-size: 15px;
+}
+
+.c2 {
+    color: black;
+    font-family: "aleo";
+    font-size: 20px;
+}
+
+.c3 {
+    color: black;
+    font-family: "aleo";
+    font-size: 20px;
+}
+.c4 {
+    color: gray;
+    font-family: "aleo";
+    font-size: 17px;
+}
+.c5 {
+    color: #069FB4  ;
+    font-family: "aleo";
+    font-size: 18px;
+}
+img {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 10px;
+}
+.padd
+{
+     padding-left:70px;
+}
